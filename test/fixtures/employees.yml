@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  department_id: MyString
+  company_id: 1
+  first_name: MyString
+  last_name: MyString
+  dob: 2019-08-01
+  address: MyString
+  start_date: 2019-08-01
+  end_date: 2019-08-01
+  holiday: 1
+  sick_days: 1
+  eveniment: 1
+
+two:
+  department_id: MyString
+  company_id: 1
+  first_name: MyString
+  last_name: MyString
+  dob: 2019-08-01
+  address: MyString
+  start_date: 2019-08-01
+  end_date: 2019-08-01
+  holiday: 1
+  sick_days: 1
+  eveniment: 1

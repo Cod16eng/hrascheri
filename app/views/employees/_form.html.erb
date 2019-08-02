@@ -1,0 +1,26 @@
+
+<%= simple_form_for(@employee) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    
+
+    <%= f.association :department, collection: current_user.company.department.order(:name), :label_method => :name, :value_method => :id, prompt: "Choose a Department" %>    
+     <%= f.input :company_id, :as => :hidden, :input_html => {:value => current_user.company.id} %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :dob, start_year: Date.today.year - 110, end_year: Date.today.year %>
+    <%= f.input :address %>
+    <%= f.input :start_date, start_year: Date.today.year - 110, end_year: Date.today.year  %>
+    <%= f.input :end_date, :include_blank => true, start_year: Date.today.year - 110, end_year: Date.today.year  %>
+    <%= f.input :holiday %><%= f.input :holiday_taken %>
+    <%= f.input :sick_days %><%= f.input :sick_days_taken %>
+    <%= f.input :eveniment %><%= f.input :eveniment_taken %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-outline-dark" %>
+  </div>
+<% end %>
+<br>

@@ -10,6 +10,16 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+//= require jquery3
+//= require jquery_ujs
+//= require popper
+//= require tether
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$("input.datepicker").each(function(input) {
+     $(this).datepicker({
+     dateFormat: "yy-mm-dd",
+     altField: $(this).next()
+      })

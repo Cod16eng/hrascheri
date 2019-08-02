@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h2 align="center">Companies <span class="badge badge-dark"><%= pluralize(@companies.count, "company")  %></span></h2>
+<p><br></p>
+
+<table class="table table-striped">
+  <thead class="thead-dark" align="center">
+    <tr>
+      <th>Name</th>
+      <th >User</th>
+      <th >Created At</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody align="center">
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= company.user.email %></td>
+        <td><%= company.created_at.strftime("%a-%d-%B-%Y") %></td>
+        <td><%= link_to 'Show', company, class:"btn btn-outline-info btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_company_path(company) , class:"btn btn-outline-success btn-sm"%></td>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company', new_company_path, class:"btn btn-outline-dark"%>

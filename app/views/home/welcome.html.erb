@@ -1,0 +1,16 @@
+<div class="jumbotron" align="center">
+  <h1 class="display-4">Welcome to HR Manager</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+  <p></p>
+  <% if current_user.admin %>
+  <%= link_to 'New Company', new_company_path, class:"btn btn-light btn-lg" %>
+   | 
+  <%= link_to 'All Companies', companies_path, class:"btn btn-light btn-lg" %>
+  <% else %>
+    <% if current_user %>
+  <%= link_to 'Your Company', company_path(current_user), class:"btn btn-light btn-lg" %>
+    <% end %>
+  <% end %>
+  
+</div>

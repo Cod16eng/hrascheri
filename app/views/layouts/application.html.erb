@@ -9,6 +9,19 @@
   </head>
 
   <body>
+  	<div class="container">
+  		<% if  !user_signed_in? %>
+  		<% else %>  
+  			<%= render 'layouts/navbar' %>
+		<% end %>
+		  
+  	</div>
+  	
+  	<div class="container">  		
+  		<div class="msg">
+			<%= render 'shared/messages' %>
+		</div>
     <%= yield %>
+    </div>
   </body>
 </html>

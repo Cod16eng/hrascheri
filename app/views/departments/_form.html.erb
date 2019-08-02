@@ -1,0 +1,18 @@
+
+<%= simple_form_for(@department) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">    
+    <%= f.input :name %>
+  </div>
+  
+  <div class="form-inputs">
+  <%= f.input :company_id, :as => :hidden, :input_html => {:value => current_user.company.id} %>    
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-outline-dark" %>
+  </div>
+<% end %>
+<br>
