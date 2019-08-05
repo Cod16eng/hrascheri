@@ -28,11 +28,11 @@
 	<td valign="middle"><%= employee.first_name %> <%= employee.last_name %> </td>
 	<td><%= employee.dob.strftime("%d-%B-%Y") %> </td>	
 	<% holiday_left = 0 %>
-	<td><%=holiday_left= holiday_left + (employee.holiday - employee.holiday_taken )%>
+	<td><%=holiday_left= holiday_left + (employee.holiday.to_i - employee.holiday_taken.to_i )%>
 	<% sick_days_left = 0 %>
-	<td><%=sick_days_left= sick_days_left + (employee.sick_days - employee.sick_days_taken )%>
+	<td><%=sick_days_left= sick_days_left + (employee.sick_days.to_i - employee.sick_days_taken.to_i )%>
 	<% eveniment_left = 0 %>
-	<td><%=eveniment_left= eveniment_left + (employee.eveniment - employee.eveniment_taken )%>
+	<td><%=eveniment_left= eveniment_left + (employee.eveniment.to_i - employee.eveniment_taken.to_i )%>
 	
 	<td><%= link_to 'Show', employee, class:"btn btn-outline-info btn-sm" %></td>
     <td><%= link_to 'Edit', edit_employee_path(employee), class:"btn btn-outline-success btn-sm" %></td>
