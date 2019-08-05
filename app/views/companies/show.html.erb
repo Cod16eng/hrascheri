@@ -3,6 +3,7 @@
 
   
   <h1 align="center"><%= @company.name %></h1>
+  <h5 align="center"><span class="badge badge-dark"><%= pluralize(@company.department.count, "department")  %></span><h5>
   <br>
 <h3>Departments<%= link_to 'New Department', new_department_path, class: "btn btn-outline-dark btn-sm float-right" %></h3>
 <br>
@@ -10,7 +11,8 @@
 <table class="table table-striped">
   <thead class="thead-dark" align="center">
     <tr>
-      <th>Name</th>      
+      <th>Name</th>  
+      <th>Employees</th>    
       <th >Created At</th>
       <th colspan="3">Actions</th>
     </tr>
@@ -21,7 +23,8 @@
 <% @company.department.each do |department| %>
 <tr>
 	<td><%= department.name %></td>
-	<td><%= department.created_at.strftime("%a-%d-%B-%Y") %></td>
+  <td><%= pluralize(department.employees.count, "employee")  %></td>
+	<td><%= department.created_at.strftime("%d-%B-%Y") %></td>
 	<td><%= link_to 'Show', department, class:"btn btn-outline-info btn-sm" %></td>
     <td><%= link_to 'Edit', edit_department_path(department), class:"btn btn-outline-success btn-sm" %></td>
     <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger btn-sm" %></td>
