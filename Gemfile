@@ -34,7 +34,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'popper_js'
-gem 'tether-rails'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
