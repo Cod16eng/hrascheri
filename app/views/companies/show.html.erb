@@ -5,7 +5,7 @@
   <h1 align="center"><%= @company.name %></h1>
   <h5 align="center"><span class="badge badge-dark"><%= pluralize(@company.department.count, "department")  %></span><h5>
   <br>
-<h3>Departments<%= link_to 'New Department', new_department_path, class: "btn btn-outline-dark btn-sm float-right" %></h3>
+<h3>Departments<%= link_to 'New Department', new_department_path(@company), class: "btn btn-outline-dark btn-sm float-right" %></h3>
 <br>
 
 <table class="table table-striped">
