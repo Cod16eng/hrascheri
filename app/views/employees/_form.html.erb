@@ -14,7 +14,7 @@
     <%= f.input :address %>
     <%= f.input :start_date, start_year: Date.today.year - 110, end_year: Date.today.year  %>
     <%= f.input :end_date, :include_blank => true, start_year: Date.today.year - 110, end_year: Date.today.year  %>
-    <%= f.input :holiday %><%= f.input :holiday_taken %>
+    <%= f.input :holiday  %><%= f.input :holiday_taken %>
     <%= f.input :sick_days %><%= f.input :sick_days_taken %>
     <%= f.input :eveniment %><%= f.input :eveniment_taken %>
   </div>

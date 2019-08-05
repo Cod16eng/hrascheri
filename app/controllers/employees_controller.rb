@@ -1,16 +1,17 @@
 class EmployeesController < ApplicationController
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
-
+  before_action :is_admin?, only: [:index]
   # GET /employees
   # GET /employees.json
+    
   def index
     @employees = Employee.all
   end
-
+  
   # GET /employees/1
   # GET /employees/1.json
   def show
-    
+
   end
 
   # GET /employees/new
@@ -67,6 +68,10 @@ class EmployeesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
       @employee = Employee.find(params[:id])
+    end
+
+    def is_admin?
+      redirect_to root_path unless current_user.admin?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,59 +1,106 @@
-<p id="notice"><%= notice %></p>
+<div class="card-group">
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>First name:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.first_name %></p>
+    </div>
+  </div>
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Last name:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.last_name %></p>
+    </div>
+  </div>
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Date of Birth:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.dob %></p>
+    </div>
+  </div>
+</div>
+<div class="card-group">
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Address:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.address %></p>
+    </div>
+  </div>
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Start date:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.start_date %></p>
+    </div>
+  </div>
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>End date:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.end_date %></p>
+    </div>
+  </div> 
+</div>
+<div class="card-group">
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Holiday:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.holiday %></p>
+    </div>
+  </div>
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Holiday taken:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.holiday_taken %></p>
+    </div>
+  </div>
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Holiday left:</strong></div>
+      <div class="card-body">
+      <% holiday_left = 0 %>      
+        <p class="card-text"><%=holiday_left= holiday_left + (@employee.holiday - @employee.holiday_taken )%></p>
+    </div>
+  </div>
+</div>
+<div class="card-group">
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Sick_days:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.sick_days %></p>
+    </div>
+  </div>
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Sick_days taken:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.sick_days_taken %></p>
+    </div>
+  </div>
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Sick_days left:</strong></div>
+      <div class="card-body">
+      <% sick_days_left = 0 %>      
+        <p class="card-text"><%=sick_days_left= sick_days_left + (@employee.sick_days - @employee.sick_days_taken )%></p>
+    </div>
+  </div>
+</div>
+<div class="card-group">
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Eveniment:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.eveniment %></p>
+    </div>
+  </div>
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Eveniment taken:</strong></div>
+      <div class="card-body">      
+        <p class="card-text"><%= @employee.eveniment_taken %></p>
+    </div>
+  </div>
+  <div class="card border-dark mb-3">    
+    <div class="card-header"><strong>Eveniment left:</strong></div>
+      <div class="card-body">
+      <% eveniment_left = 0 %>      
+        <p class="card-text"><%=eveniment_left= eveniment_left + (@employee.eveniment - @employee.eveniment_taken )%></p>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Department:</strong>
-  <%= @employee.department_id %>
-</p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @employee.company_id %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @employee.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @employee.last_name %>
-</p>
-
-<p>
-  <strong>Dob:</strong>
-  <%= @employee.dob %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @employee.address %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @employee.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @employee.end_date %>
-</p>
-
-<p>
-  <strong>Holiday:</strong>
-  <%= @employee.holiday %>
-</p>
-
-<p>
-  <strong>Sick days:</strong>
-  <%= @employee.sick_days %>
-</p>
-
-<p>
-  <strong>Eveniment:</strong>
-  <%= @employee.eveniment %>
-</p>
-
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<%= link_to 'Edit', edit_employee_path(@employee), class: "btn btn-outline-dark btn-sm" %> |
+<%= link_to 'Back', department_path(@employee.department), class: "btn btn-outline-dark btn-sm" %>

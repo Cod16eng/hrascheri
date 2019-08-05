@@ -4,18 +4,19 @@
 <br>
 
   <h3 align="center"><%= @department.name %><h3>
-  	<h5 align="center"><span class="badge badge-dark"><%= pluralize(@employees.count, "employee")  %></span><h5>
+  	<h5 align="center"><span class="badge badge-dark"><%= pluralize(@department.employees.count, "employee")  %></span><h5>
   		<br>
-<%= link_to 'New Employee', new_employee_path, class: "btn btn-outline-dark btn-sm float-right" %>
-<br>
+<h3><%= link_to 'New Employee', new_employee_path, class: "btn btn-outline-dark btn-sm float-right" %></h3><br>
+ <br>
 
 <table class="table table-striped">
   <thead class="thead-dark" align="center">
     <tr>
       <th>Full Name</th>      
-      <th >Date of Birth</th>
-      <th >Holidays</th>
+      <th >Date of Birth</th>      
       <th >Holidays left</th>
+      <th >Sick days left</th>
+      <th >Eveniment left</th>
       <th colspan="3">Actions</th>
     </tr>
   </thead>
@@ -25,9 +26,13 @@
 <% @department.employees.each do |employee| %>
 <tr valign="middle">
 	<td valign="middle"><%= employee.first_name %> <%= employee.last_name %> </td>
-	<td><%= employee.dob.strftime("%d-%B-%Y") %> </td>
-	<td><%= employee.holiday %> </td>
-	<td><%= employee.calculate_holiday_left%> </td>
+	<td><%= employee.dob.strftime("%d-%B-%Y") %> </td>	
+	<% holiday_left = 0 %>
+	<td><%=holiday_left= holiday_left + (employee.holiday - employee.holiday_taken )%>
+	<% sick_days_left = 0 %>
+	<td><%=sick_days_left= sick_days_left + (employee.sick_days - employee.sick_days_taken )%>
+	<% eveniment_left = 0 %>
+	<td><%=eveniment_left= eveniment_left + (employee.eveniment - employee.eveniment_taken )%>
 	
 	<td><%= link_to 'Show', employee, class:"btn btn-outline-info btn-sm" %></td>
     <td><%= link_to 'Edit', edit_employee_path(employee), class:"btn btn-outline-success btn-sm" %></td>
@@ -37,16 +42,6 @@
 </tbody>
 </table>
 
-<br>
-
-  
-
-<% if current_user.admin%>
-<%= link_to 'Edit', edit_company_path(@company), class: "btn btn-outline-dark btn-sm" %> |
-<%= link_to 'Back', companies_path, class: "btn btn-outline-dark btn-sm" %>
-<% end %>
-
-<br>
 <br>
 <%= link_to 'Edit', edit_department_path(@department), class: "btn btn-outline-dark btn-sm" %> |
 <%= link_to 'Back', company_path(current_user), class: "btn btn-outline-dark btn-sm" %>
