@@ -2,5 +2,5 @@ class Department < ApplicationRecord
 	belongs_to :company
 	has_many :employees, dependent: :destroy
 
-	validates :name, uniqueness: true
+	validates :name, presence: true
 end

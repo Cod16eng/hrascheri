@@ -11,7 +11,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
-
+    @presences = Presence.all
   end
 
   # GET /employees/new
@@ -76,6 +76,8 @@ class EmployeesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
-      params.require(:employee).permit(:department_id, :company_id, :first_name, :last_name, :dob, :address, :start_date, :end_date, :holiday, :sick_days, :eveniment, :holiday_taken, :sick_days_taken, :eveniment_taken)
+      params.require(:employee).permit(:department_id, :company_id, :first_name, :last_name, :dob, 
+        :address, :start_date, :end_date, :holiday, :sick_days, :eveniment, :holiday_taken, 
+        :sick_days_taken, :eveniment_taken, :time_in)
     end
 end

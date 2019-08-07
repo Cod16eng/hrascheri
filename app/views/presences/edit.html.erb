@@ -1,0 +1,9 @@
+<h1>Editing Presence</h1>
+
+<%= render 'form', presence: @presence %>
+
+<br>
+
+<%= link_to 'Show', @presence.employee, class: "btn btn-outline-dark btn-sm" %> |
+<%= link_to 'Back', employee_path(@presence.employee), class: "btn btn-outline-dark btn-sm" %>
+

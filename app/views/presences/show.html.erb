@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @presence.date %>
+</p>
+
+<p>
+  <strong>Hour:</strong>
+  <%= @presence.hour %>
+</p>
+
+<%= link_to 'Edit', edit_presence_path(@presence), class: "btn btn-outline-dark btn-sm" %> |
+<%= link_to 'Back', employee_path(@presence.employee), class: "btn btn-outline-dark btn-sm" %>

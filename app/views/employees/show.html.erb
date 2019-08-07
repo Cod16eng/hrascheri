@@ -1,3 +1,5 @@
+
+
 <div class="card-group">
   <div class="card border-dark mb-3">    
     <div class="card-header"><strong>First name:</strong></div>
@@ -101,6 +103,36 @@
     </div>
   </div>
 </div>
-
+<div class="row float-left" >
 <%= link_to 'Edit', edit_employee_path(@employee), class: "btn btn-outline-dark btn-sm" %> |
-<%= link_to 'Back', department_path(@employee.department), class: "btn btn-outline-dark btn-sm" %>
+<%= link_to 'Back', department_path(@employee.department), class: "btn btn-outline-dark btn-sm" %></div>
+
+<div class="row float-right" >
+<%= link_to 'New Presence', new_presence_path(:employee_id => @employee), class: "btn btn-outline-dark btn-sm  " %></div>
+<div class="clearfix"></div>
+<br>
+
+<%# if @employee.id == @presences.employee_id %>
+<div class="row">
+
+
+  <% @employee.presence.order(created_at: :desc).limit(20).each_slice(5)  do |list| %> 
+    <div class="col-md-3">  
+      <table class="table table-bordered" align="center" >        
+        <% list.each do |presence| %>          
+          <tr align="center">
+            <th colspan="3" ><%= presence.date %></th>
+          </tr>  
+            <td align="center"><%= presence.hour.strftime("%H : %M") %></td>
+            
+            <td align="center"><%= link_to 'Edit', edit_presence_path(presence), class: "btn btn-outline-info btn-sm" %> | 
+            <%= link_to 'Destroy', presence, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td> 
+        <% end %>      
+      </table>
+    </div>
+  <% end %>
+</div> 
+<br>
+<%# end %>
+
+<%= link_to 'Back', department_path(@employee.department), class: "btn btn-outline-dark btn-sm" %> | <%= link_to 'Show All Presences', presences_path(:employee_id => @employee), class: "btn btn-outline-dark btn-sm" %>
