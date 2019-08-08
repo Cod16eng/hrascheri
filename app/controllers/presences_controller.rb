@@ -8,7 +8,7 @@ class PresencesController < ApplicationController
       @employee = Employee.find(params[:employee_id])
       @presences = @employee.presence.all
     else
-      @presences = Presence.all
+      @presences = Presence.all.order(created_at: :desc)
     end
     
     #@employee = Presence.where(:employee_id => @employee)
@@ -78,6 +78,6 @@ class PresencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def presence_params
-      params.require(:presence).permit(:date, :hour, :employee_id)
+      params.require(:presence).permit(:date, :hour, :employee_id, :start_hour)
     end
 end

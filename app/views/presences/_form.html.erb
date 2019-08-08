@@ -5,7 +5,8 @@
 
   <div class="form-inputs">
     <%= f.input :date, :as => :string, :input_html => {:value => Time.now.strftime( "%d %b %Y" ) } %>
-    <%= f.input :hour, :as => :time %>
+    <%= f.input :hour, as: :float %>
+    
     <% if params[:action] == "new" %>
     <%= f.input :employee_id, :as => :hidden, :input_html => {:value => params[:employee_id]} %>
     <% else %>
