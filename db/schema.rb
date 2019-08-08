@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190808084150) do
+ActiveRecord::Schema.define(version: 20190808100126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20190808084150) do
     t.integer "sick_days_taken"
     t.integer "eveniment_taken"
     t.float "time_in"
-    t.float "start_hour"
+    t.datetime "start_hour"
   end
 
   create_table "presences", force: :cascade do |t|
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20190808084150) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "start_hour"
-    t.float "hour"
+    t.datetime "hour"
   end
 
   create_table "users", force: :cascade do |t|

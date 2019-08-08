@@ -132,13 +132,13 @@
               
               <th colspan="3" ><% str1 = presence.hour %>
             <% str2 = @employee.start_hour %>                    
-            <% late = (str1.to_f - str2.to_f ).round(2)  %>
+            <% late = (str1.to_i - str2.to_i )  %>
               <% if late < 0 %>
-              Early <%= late.round(2) %> minutes
+              Early <%= (late / -60) %> minutes
               <% elsif late == 0 %>
               On time 
               <% elsif late > 0 %>
-             Late <%= late.round(2) %> minutes
+             Late <%= (late / 60 ) %> minutes
               <% end %>
             </th>
             
