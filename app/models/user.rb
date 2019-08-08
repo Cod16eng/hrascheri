@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
    has_one :company
+   has_many :departments
    validates :email, uniqueness: true
 end

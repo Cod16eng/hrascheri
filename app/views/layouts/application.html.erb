@@ -22,7 +22,12 @@
 			<%= render 'shared/messages' %>
 		</div>
     <%= yield %>
-    </div>
+   <% if  !user_signed_in? %>
+      <% else %>
+    <div>
     <%= render 'layouts/footer' %>
+    </div>
+    <% end %>
+     </div>
   </body>
 </html>

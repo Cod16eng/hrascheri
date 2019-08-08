@@ -3,4 +3,4 @@
 <%= render 'form', department: @department %>
 
 <%= link_to 'Show', @department, class: "btn btn-outline-dark btn-sm" %> |
-<%= link_to 'Back', company_path(current_user), class: "btn btn-outline-dark btn-sm" %>
+<%= link_to 'Back', company_path(@deparment.company), class: "btn btn-outline-dark btn-sm" %>

@@ -4,10 +4,18 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    
-
-    <%= f.association :department, collection: current_user.company.department.order(:name), :label_method => :name, :value_method => :id, prompt: "Choose a Department" %>    
+    <% if current_user.admin %>
+    <%= f.association :department, collection: Company.departments.order(:company_id), :label_method => :name, :value_method => :id, prompt: "Choose a Department" %>
+  <% else %>
+    <%= f.association :department, collection: current_user.company.department.order(:name), :label_method => :name, :value_method => :id, prompt: "Choose a Department" %>
+    <% end %>
+    <% if current_user.admin %>
+  <div class="form-inputs">
+  <%= f.association :company, collection: Company.order(name: :desc), :label_method => :name, :value_method => :id %>     
+  </div>
+  <% else %>   
      <%= f.input :company_id, :as => :hidden, :input_html => {:value => current_user.company.id} %>
+     <% end %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :dob, start_year: Date.today.year - 110, end_year: Date.today.year %>
